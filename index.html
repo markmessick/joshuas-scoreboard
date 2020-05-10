@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Joshua's Scoreboard</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 jumbotron text-center">
+        <h1>Joshua's Field Expert Scoreboard</h1>
+        <p>Use the interactive charts below to explore the data for each Field Expert</p>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <div class="well">
+          <center><h4>Pick a Field Expert:</h4>
+          <select id="selDataset" onchange="optionChanged(this.value)">
+            <option value="select">Select One</option>
+            <option value="markmessick">Mark Messick</option>
+            <option value="tylermaun">Tyler Maun</option>
+            <option value="joshfowler">Josh Fowler</option>
+          </select></center>
+        </div>
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <h3 class="panel-title">At a Glance Stats</h3>
+          </div>
+          <div id="sample-metadata" class="panel-body"></div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div id="plot1"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-8">
+        <div id="plot2"></div>
+      </div>
+      <div class="col-md-4">
+        <div id="plot3"></div>
+    </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <script src="app.js"></script>
+
+</body>
+
+</html>
