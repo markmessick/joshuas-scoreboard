@@ -5,23 +5,66 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Joshua's Scoreboard</title>
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <title>Joshua's Data</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+  <nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+    <a class="navbar-brand" href="https://markmessick.github.io/joshuas-data/">
+      <img src="https://pkhg5238obn38aj44344ze11-wpengine.netdna-ssl.com/wp-content/uploads/2019/10/joshuas-logo-originalwhite-and-blue.png">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+  
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="https://markmessick.github.io/joshuas-scoreboard/">Field Experts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://markmessick.github.io/office-experts/">Office Experts</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="https://markmessick.github.io/joshuas-vehicles/">Vehicles</a>
+      </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Sales Team</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Termite Team</a>
+        </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Products</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Equipment</a>
+    </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Customers</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Company KPIs</a>
+      </li>
+      </ul>
+    </div>
+  </nav>
 
+  <br>
+  
   <div class="container">
     <div class="row">
       <div class="col-md-12 jumbotron text-center">
         <h1>Joshua's Field Expert Scoreboard</h1>
-        <p>Use the interactive charts below to explore the data for each Field Expert</p>
+        <h5>Use the interactive charts below to explore the data for each Field Expert</h5>
       </div>
     </div>
     <div class="row">
       <div class="col-md-4">
-        <div class="well">
+        <div class="card">
+          <p></p>
           <center><h4>Pick a Field Expert:</h4>
           <select id="selDataset" onchange="optionChanged(this.value)">
             <option value="select">Select One</option>
@@ -32,18 +75,22 @@
             <option value="noah_fullerton">Noah Fullerton</option>
             <option value="wade_wellesley">Wade Wellesley</option>
           </select></center>
+          <p></p>
         </div>
-        <div class="panel panel-primary">
-          <div class="panel-heading">
-            <h3 class="panel-title">At a Glance Stats (Last 30 Days)</h3>
+        <br>
+        <div class="card">
+          <div class="card-header">
+            <h5 class="card-title">At a Glance Stats (Last 30 Days)</h5>
           </div>
-          <div id="sample-metadata" class="panel-body"></div>
+          <div id="sample-metadata" class="card-body"></div>
         </div>
       </div>
       <div class="col-md-8">
+        <br>
         <div id="plot1"></div>
       </div>
     </div>
+    <br>
     <div class="row">
       <div class="col-md-8">
         <div id="plot2"></div>
@@ -63,9 +110,12 @@
   <br>
   <br>
 
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/d3/5.5.0/d3.js"></script>
   <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-  <script src="app.js"></script>
+  <script src="/js/field_expert_js.js"></script>
 
 </body>
 

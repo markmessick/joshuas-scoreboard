@@ -1,18 +1,18 @@
 function optionChanged() {
-    d3.csv("master_scoreboard.csv").then(function(importedData) {
+    d3.csv("/data/field_expert_scoreboard.csv").then(function(importedData) {
         
     var dropdownMenu = d3.select("#selDataset");
     
-    var fieldExpert = dropdownMenu.property("value");
+    var selection = dropdownMenu.property("value");
 
-    fieldExpertsArr = ['mark_messick', 'tyler_maun', 'josh_fowler', 'patrick_kern', 'noah_fullerton', 'wade_wellesley']
+    selectionArr = ['mark_messick', 'tyler_maun', 'josh_fowler', 'patrick_kern', 'noah_fullerton', 'wade_wellesley']
 
-    for (var i = 0; i < fieldExpertsArr.length; i++) {
-        if (fieldExpert === fieldExpertsArr[i]) {
-            var importedData = importedData.filter(d => d.field_expert === fieldExpertsArr[i])
+    for (var i = 0; i < selectionArr.length; i++) {
+        if (selection === selectionArr[i]) {
+            var filteredData = importedData.filter(d => d.field_expert === selectionArr[i])
         }
     }
-    console.log(importedData[0])
+    console.log(filteredData[0])
     
     dates = []
     demandG = []
@@ -43,7 +43,7 @@ function optionChanged() {
     collectionRate2 = []
 
 
-    importedData.forEach(function(data) {
+    filteredData.forEach(function(data) {
         data.date = new Date(data.date)
         data.demand_g = +data.demand_g;
         data.intice = +data.intice;
@@ -73,7 +73,7 @@ function optionChanged() {
         collectionRate.push(data.collection_rate);
     });
 
-    var lastMonth = importedData.slice(-30)
+    var lastMonth = filteredData.slice(-30)
 
     lastMonth.forEach(function(data) {
         data.date = new Date(data.date)
@@ -130,9 +130,9 @@ function optionChanged() {
     target.append("p").html(`Avg Time Spent on Qs: <b>${mean(qTime2)} minutes</b>`);
     target.append("p").html(`Avg Time Spent on Reservices: <b>${mean(rsTime2)} minutes</b>`);
     target.append("p").html(`Avg Time Spent on Starts: <b>${mean(startTime2)} minutes</b>`);
-    target.append("p").html(`Avg number of Qs per Day: <b>${mean(qCount2)}</b>`);
-    target.append("p").html(`Avg number of Reservices per Day: <b>${mean(rsCount2)}</b>`);
-    target.append("p").html(`Avg number of Starts per Day: <b>${mean(startCount2)}</b>`);
+    // target.append("p").html(`Avg number of Qs per Day: <b>${mean(qCount2)}</b>`);
+    // target.append("p").html(`Avg number of Reservices per Day: <b>${mean(rsCount2)}</b>`);
+    // target.append("p").html(`Avg number of Starts per Day: <b>${mean(startCount2)}</b>`);
     // target.append("p").html(`Avg amount of Taurus Used per Q: <b>${mean(taurus)} gallons</b>`);
     // target.append("p").html(`Avg amount of Intice used per Q: <b>${mean(intice)}</b>`);
     // target.append("p").html(`Avg amount of Demand G used per Q: <b>${mean(demandG)}</b>`);
@@ -153,7 +153,7 @@ function optionChanged() {
         }
     }
 
-    getDates(importedData)
+    getDates(filteredData)
     
     var traceA1 = {
         x: datesArr,
