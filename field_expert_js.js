@@ -1,5 +1,5 @@
 function optionChanged() {
-    d3.csv("/data/field_expert_scoreboard.csv").then(function(importedData) {
+    d3.csv("field_expert_scoreboard.csv").then(function(importedData) {
         
     var dropdownMenu = d3.select("#selDataset");
     
